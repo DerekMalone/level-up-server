@@ -1,0 +1,22 @@
+[
+    {"model": "levelupapi.event",
+    "pk": 1,
+    "fields": {
+        "description": "Board Game Night",
+        "date": "2023-06-16",
+        "time": "7:15",
+        "game": 1,
+        "organizer": 1
+        }
+    },
+    {"model": "levelupapi.event",
+    "pk": 2,
+    "fields": {
+        "description": "MMO Night",
+        "date": "2023-02-02",
+        "time": "7:15",
+        "game": 2,
+        "organizer": 1
+        }
+    }
+]
