@@ -1,6 +1,10 @@
 {
-    "python.linting.pylintArgs": [
-        "--load-plugins=pylint_django",
-        "--django-settings-module=Levelup.settings",
-    ],
+  "python.linting.pylintArgs": [
+    "--load-plugins=pylint_django",
+    "--django-settings-module=Levelup.settings"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none"
 }
