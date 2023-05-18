@@ -9,7 +9,7 @@ from levelupapi.models import Event
 class EventView(ViewSet):
     """Level up event view"""
 
-    def retrieve(self, request, pk):
+    def retrieve(self, request):
         """Handle GET requests for single event
 
         Returns:
@@ -25,13 +25,11 @@ class EventView(ViewSet):
         Returns:
             Response -- JSON serialized list of events
         """
-        # events = []
         events = Event.objects.all()
 
-        if "status" in request.query_params:
-          if request.query_params['game']   
+        if "game" in request.query_params:
+            events = events.filter(game=request.query_params["game"])
 
-        
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
 
