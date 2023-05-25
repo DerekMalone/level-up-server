@@ -54,8 +54,23 @@ class EventView(ViewSet):
         return Response(serializer.data)
 
 
+class OrganizerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gamer
+        fields = ("id", "full_name")
+
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = ("id", "title", "maker", "number_of_players", "skill_level")
+
+
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for event"""
+
+    organizer = OrganizerSerializer(many=False)
+    game = GameSerializer(many=False)
 
     class Meta:
         model = Event
