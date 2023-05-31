@@ -76,8 +76,19 @@ class GameView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class GameTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GameType
+        fields = (
+            "id",
+            "label",
+        )
+
+
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games"""
+
+    game_type = GameTypeSerializer(many=False)
 
     class Meta:
         model = Game
