@@ -45,7 +45,6 @@ class GameView(ViewSet):
             number_of_players=request.data["number_of_players"],
             skill_level=request.data["skill_level"],
             gamer=gamer,
-            # TODO: Need to sort out the game_type
             game_type=game_type,
         )
         serializer = GameSerializer(game)
