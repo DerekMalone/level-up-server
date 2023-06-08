@@ -13,6 +13,5 @@ class Game(models.Model):
     maker = models.CharField(max_length=55)
     number_of_players = models.IntegerField(validators=[MinValueValidator(1)])
     skill_level = models.IntegerField()
-    # TODO: Need to sort out the game_type
     game_type = models.ForeignKey("GameType", on_delete=models.CASCADE, default=1)
     gamer = models.ForeignKey("Gamer", on_delete=models.CASCADE)
