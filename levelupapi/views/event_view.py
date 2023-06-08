@@ -88,8 +88,13 @@ class EventView(ViewSet):
         event.attendees.add(gamer)
         return Response({"message": "Gamer added"}, status=status.HTTP_201_CREATED)
 
-
-# TODO: Next step is chpt 13 delete a gamer from an event.
+    @action(methods=["DELETE"], detail=True)
+    def leave(self, request, pk):
+        """Delete a gamer from an event"""
+        gamer = Gamer.objects.get(user=request.auth.user)
+        event = Event.objects.get(pk=pk)
+        event.attendees.remove(gamer)
+        return Response({"message": "Gamer removed"}, status=status.HTTP_204_NO_CONTENT)
 
 
 class OrganizerSerializer(serializers.ModelSerializer):
